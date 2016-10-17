@@ -1,0 +1,16 @@
+{% extends 'main/index.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block page %}
+    <h2>{% trans 'All news' %}</h2>
+    <div class="row highlightcontent"> <!-- Новости -->
+        <div class="col-md-12">
+            <figure class="highlight">
+                {% for model in news %}
+                    <a href="{% url 'news_item' model.id %}">{{ model.title }}</a>
+                {% endfor %}
+            </figure>
+        </div>
+    </div>
+{% endblock %}

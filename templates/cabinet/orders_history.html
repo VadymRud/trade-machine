@@ -1,0 +1,111 @@
+{% extends 'site/index.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block page %}
+    <h2>{% trans 'Orders history' %}</h2>
+
+    <div class="row highlightcontent">
+        <div class="col-md-6">
+            <h5 class="type-info">{% trans 'Buy' %}</h5>
+
+            <div data-example-id="hoverable-table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>{% trans 'Pair' %}</th>
+                        <th>{% trans 'Amount' %}</th>
+                        <th>{% trans 'Price' %}</th>
+                        <th>{% trans 'Status' %}</th>
+                        <th>{% trans 'Date' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in sell_orders %}
+                        <tr>
+                            <td>{{ order.pair }}</td>
+                            <td>{{ order.source_amount }}</td>
+                            <td>{{ order.price }}</td>
+                            <td>
+                                {% if order.paid %}
+                                    {% trans 'Paid' %}
+                                {% elif order.canceled %}
+                                    {% trans 'Canceled' %}
+                                {% else %}
+                                    {% trans 'Active' %}
+                                {% endif %}
+                            </td>
+                            <td>{{ order.date|date:"d.m.Y" }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <span class="step-links">
+                    {% if sell_orders.has_previous %}
+                        <a href="?page={{ sell_orders.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ sell_orders.number }} of {{ sell_orders.paginator.num_pages }}.
+                    </span>
+
+                    {% if sell_orders.has_next %}
+                        <a href="?page={{ sell_orders.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5 class="type-info">{% trans 'Sell' %}</h5>
+
+            <div data-example-id="hoverable-table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>{% trans 'Pair' %}</th>
+                        <th>{% trans 'Amount' %}</th>
+                        <th>{% trans 'Price' %}</th>
+                        <th>{% trans 'Status' %}</th>
+                        <th>{% trans 'Date' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in buy_orders %}
+                        <tr>
+                            <td>{{ order.pair }}</td>
+                            <td>{{ order.source_amount }}</td>
+                            <td>{{ order.price }}</td>
+                            <td>
+                                {% if order.paid %}
+                                    {% trans 'Paid' %}
+                                {% elif order.canceled %}
+                                    {% trans 'Canceled' %}
+                                {% else %}
+                                    {% trans 'Active' %}
+                                {% endif %}
+                            </td>
+                            <td>{{ order.date|date:"d.m.Y" }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <span class="step-links">
+                    {% if buy_orders.has_previous %}
+                        <a href="?page={{ buy_orders.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ buy_orders.number }} of {{ buy_orders.paginator.num_pages }}.
+                    </span>
+
+                    {% if buy_orders.has_next %}
+                        <a href="?page={{ buy_orders.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

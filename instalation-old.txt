@@ -1,0 +1,23 @@
+Create 2 database in postgres - "log" and "paymoney"
+In terminal
+
+
+sudo pip3 install -r "requirements.txt"
+python3 manage.py migrate sites
+python3 manage.py migrate auth
+
+
+python3 manage.py sqlall logers --database="log"
+on server
+/home/paymoney/python34/bin/python manage.py sqlall logers --database="log"
+
+
+
+1. ssh root@umt.money
+2. cd /home/paymoney/www
+3. git pull
+4. source /home/paymoney/python34/bin/activate
+5. python34 paymoney/manage .................
+6. deactivate
+5. chown paymoney.nginx /home/paymoney/www -R
+6. killall uwsgi

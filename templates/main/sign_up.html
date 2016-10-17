@@ -1,0 +1,29 @@
+{% extends 'main/index.html' %}
+{% load staticfiles compress i18n bootstrap3 %}
+
+{% block page %}
+    <div class="row highlightcontent">
+        <div class="col-md-6">
+            <h3 class="text-primary">Register</h3>
+            <!-- Notifications -->
+            <form action="{% url 'sign-up' %}" method="POST" id="sign-up-form">
+                {% csrf_token %}
+
+                {% bootstrap_field form.first_name show_label=False %}
+
+                {% bootstrap_field form.last_name show_label=False %}
+
+                {% bootstrap_field form.email show_label=False %}
+
+                {% bootstrap_field form.password show_label=False %}
+
+                {% bootstrap_field form.password_confirm show_label=False %}
+
+                {% bootstrap_field form.captcha show_label=False %}
+
+                <input type="submit" class="btn btn-block btn-primary" value="Sign up" name="submit">
+                Already have an account? Please <a href="{% url 'index' %}"> Sign In</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

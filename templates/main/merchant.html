@@ -1,0 +1,284 @@
+{% extends 'main/index.html' %}
+{% load staticfiles compress i18n %}
+
+{% block page %}
+    <div class="row highlightcontent">
+        <div class="col-md-12">
+            {% trans 'News' %}
+            <figure class="highlight">
+                {% for model in news %}
+                    <p>
+                        <a href="{% url 'news_item' model.id %}">{{ model.title }}</a>
+                    </p>
+                {% endfor %}
+            </figure>
+        </div>
+    </div>
+    <div class="row highlightcontent"> <!-- График -->
+        <div class="col-md-12 highlightcontent">
+            {% for p in pairs %}
+                <a href="{% url 'pair' p.name %}"{% if p == pair %} style="color: red;" {% endif %}>{{ p }}</a>
+            {% endfor %}
+        </div>
+        <div class="col-md-12">
+            {% trans 'Current rate' %}: {{ rate }}
+            <div id="graph"></div>
+        </div>
+    </div>
+
+    <div class="row"> <!-- Покупка - Продажа -->
+        <div class="col-md-12 ">
+
+            <div class="row highlightcontent">
+                <div class="col-md-6 panel panel-default">
+                    <form action="{% url 'v1:order-list' %}" method="post" id="buy_form">
+                        <input type="hidden" name="type" value="buy" id="buy_type">
+                        <input type="hidden" name="pair" value="{{ pair.name }}" id="buy_pair">
+
+                        <div class="">
+                            <h5 class="type-info">{% trans 'Buy' %} {{ pair.currency1.short_name }}</h5>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    Ваши средства: 0 {{ pair.currency2.short_name }}
+                                    <p> Мин Цена:
+                                        <span id="max_buy">0</span> {{ pair.currency2.short_name }}</p>
+                                </div>
+
+                            </div>
+                            <div class="panel-body">
+                                <div class="input-group">
+                                <span class="input-group-addon" id="sizing-addon2">
+                                    Количество {{ pair.currency1.short_name }}:
+                                </span>
+                                    <input type="text" class="form-control" placeholder="00" name="amount"
+                                           aria-describedby="sizing-addon2" id="buy_amount">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Цена за {{ pair.currency1.short_name }}:</span>
+                                    <input type="text" class="form-control" name="price" id="buy_price"
+                                           aria-label="Amount (to the nearest dollar)">
+                                    <span class="input-group-addon">{{ pair.currency2.short_name }}</span>
+                                </div>
+                                <br> Всего: <span class="summary">0</span> {{ pair.currency2.short_name }}
+                                <br> Комиссия: <span class="fee">0</span> {{ pair.currency1.short_name }}
+                            </div>
+                            <hr>
+                            Нажмите <b>подсчитать</b>, чтобы рассчитать сумму в соответствии с ордерами.
+                            <br> <br>
+                            <p>
+                                <button type="button" class="btn btn-default btn-sm calculate"
+                                        fee-action="#">Подсчитать
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    {% trans 'Buy' %} {{ pair.currency1.short_name }}
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 panel panel-default">
+                    <form action="{% url 'v1:order-list' %}" method="post" id="sell_form">
+                        <input type="hidden" name="type" value="sell" id="sell_type">
+                        <input type="hidden" name="pair" value="{{ pair.name }}" id="sell_pair">
+
+                        <h5 class="type-info">{% trans 'Sell' %} {{ pair.currency1.short_name }}</h5>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Ваши средства: 0 {{ pair.currency1.short_name }}
+                                <p> Мин Цена: <span id="min_sell">0</span> {{ pair.currency1.short_name }}</p>
+                            </div>
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="input-group input-group-sm">
+                            <span class="input-group-addon" id="sizing-addon3">
+                                Количество {{ pair.currency1.short_name }}:
+                            </span>
+                                <input type="text" class="form-control" placeholder="00.00" id="sell_amount"
+                                       aria-describedby="sizing-addon3" name="amount">
+                            </div>
+                            <br>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Цена за {{ pair.currency1.short_name }}:</span>
+                                <input type="text" class="form-control" name="price" id="sell_price"
+                                       aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-addon">{{ pair.currency2.short_name }}</span>
+                            </div>
+
+                            <br> Всего: <span class="summary">0</span> {{ pair.currency2.short_name }}
+                            <br> Комиссия: <span class="fee">0</span> {{ pair.currency2.short_name }}
+                        </div>
+
+                        <hr>
+                        Нажмите <b>подсчитать</b>, чтобы рассчитать сумму в соответствии с ордерами.
+                        <br> <br>
+                        <p>
+                            <button type="button" class="btn btn-default btn-sm calculate"
+                                    fee-action="#">Подсчитать
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                {% trans 'Sell' %} {{ pair.currency1.short_name }}
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row highlightcontent">
+        <div class="row ">
+            <div class="col-md-6 ">
+                <!-- Sell orders -->
+                <h5 class="type-info">{% trans 'Sell orders' %}</h5>
+                <h6 class="text-right">
+                    {% trans 'Summary' %}: <span id="summary_sell">0</span> {{ pair.currency1.short_name }}
+                </h6>
+                <div data-example-id="hoverable-table">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>{% trans 'Price' %}</th>
+                            <th>{% trans 'Amount' %} {{ pair.currency1.short_name }}</th>
+                        </tr>
+                        </thead>
+                        <tbody id="sell_orders">
+                        <tr id="((! e.code ))">
+                            <td>((! e.price ))</td>
+                            <td class="amount">((! e.amount ))</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Buy orders -->
+            <div class="col-md-6 ">
+                <h5 class="type-info">{% trans 'Buy orders' %}</h5>
+                <h6 class="text-right">
+                    {% trans 'Summary' %}: <span id="summary_buy">0</span> {{ pair.currency2.short_name }}
+                </h6>
+                <div data-example-id="hoverable-table">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>{% trans 'Price' %}</th>
+                            <th>{% trans 'Amount' %} {{ pair.currency1.short_name }}</th>
+                        </tr>
+                        </thead>
+                        <tbody id="buy_orders"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- Стаканы конец -->
+    <div class="row highlightcontent"> <!-- Ваши активные ордеры: -->
+        <div class="col-md-12">
+            <h5 class="type-info"> Ваши активные ордеры </h5>
+
+            <div data-example-id="hoverable-table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Тип</th>
+                        <th>Дата</th>
+                        <th>Цена</th>
+                        <th>Кол-во {{ pair.currency1.short_name }}</th>
+                        <th>Всего {{ pair.currency2.short_name }}</th>
+                        <th>Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody id="my_orders">
+                    <tr id="((! e.code ))">
+                        <td>
+                            (( if(e.type == 'sell') { ))
+                            <span class="label label-danger">Sell</span>
+                            (( } else { ))
+                            <span class="label label-success">Buy</span>
+                            (( } ))
+                        </td>
+                        <td>((! e.date ))</td>
+                        <td>((! e.price ))</td>
+                        <td class="amount">((! e.amount ))</td>
+                        <td>((! e.price * e.amount ))</td>
+                        <td>
+                            <a href="javascript: void(0);"> {% trans 'Cancel' %}</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> <!-- Ваши активные ордеры конец -->
+
+    <div class="row highlightcontent"> <!-- История сделок: -->
+        <div class="col-md-12">
+            <h5 class="type-info"> История сделок: </h5>
+
+            <div data-example-id="hoverable-table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Тип</th>
+                        <th>Цена</th>
+                        <th>Кол-во BTC</th>
+                        <th>Всего USD</th>
+                    </tr>
+                    </thead>
+                    <tbody id="trades_list">
+                    <tr id="((! e.code ))">
+                        <td>((! e.date ))</td>
+                        <td>
+                            (( if(e.type == 'sell') { ))
+                            <span class="label label-danger">Sell</span>
+                            (( } else { ))
+                            <span class="label label-success">Buy</span>
+                            (( } ))
+                        </td>
+                        <td>((! e.price ))</td>
+                        <td class="amount">((! e.amount ))</td>
+                        <td>((! e.price * e.amount ))</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block styles %}
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'site/jqplot/jquery.jqplot.css' %}"/>
+    {% endcompress %}
+{% endblock %}
+
+{% block scripts %}
+    {% compress js %}
+        <script type="text/javascript" src="{% static 'site/jqplot/jquery.jqplot.js' %}"></script>
+        <script type="text/javascript" src="{% static 'site/jqplot/plugins/jqplot.dateAxisRenderer.js' %}"></script>
+        <script type="text/javascript" src="{% static 'site/jqplot/plugins/jqplot.categoryAxisRenderer.js' %}"></script>
+        <script type="text/javascript" src="{% static 'site/jqplot/plugins/jqplot.ohlcRenderer.js' %}"></script>
+        <script type="text/javascript" src="{% static 'site/jqplot/plugins/jqplot.highlighter.js' %}"></script>
+        <script type="text/javascript" src="{% static 'site/jqplot/plugins/jqplot.cursor.js' %}"></script>
+        <script type="text/javascript" src="{% static 'doT/doT.js' %}"></script>
+    {% endcompress %}
+
+    {% compress js %}
+        <script type="text/javascript">
+            var TRADE_CONFIG = {
+                pair: {% if pair %} '{{ pair.name }}' {% else %} null {% endif %},
+                orders_url: '#',
+                own_orders_url: '#',
+                trades_url: '#',
+                cancel_url: '#',
+                graph_url: '#',
+            };
+        </script>
+
+        <script type="text/javascript" src="{% static 'site/js/trade.js' %}"></script>
+    {% endcompress %}
+
+{% endblock %}

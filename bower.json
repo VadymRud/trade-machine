@@ -1,0 +1,24 @@
+{
+  "name": "btcalpha",
+  "authors": [
+    "BTC-Alpha Team"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "jquery-validation": "jquery-validate#^1.15.0",
+    "doT": "^1.0.1",
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
+  }
+}

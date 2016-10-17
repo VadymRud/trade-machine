@@ -1,0 +1,65 @@
+Установка redis:
+	brew install redis
+
+Автозапуск redis на MacOS:
+
+1) create file /Library/LaunchDaemons/io.redis.redis-server.plist
+
+2) insert into file next:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>io.redis.redis-server</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/redis-server</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
+
+3) add to autostart
+sudo launchctl load /Library/LaunchDaemons/io.redis.redis-server.plist
+
+4) start and stop commands:
+sudo launchctl start io.redis.redis-server
+sudo launchctl stop io.redis.redis-server
+
+
+Автозапуск celery на MacOS
+
+1) create file /Library/LaunchDaemons/io.celery.worker.plist
+
+2) insert into file next:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>io.celery.worker</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.4/bin/celery</string>
+        <string>worker</string>
+        <string>--workdir</string>
+        <string>/Users/igorvus/Development/btcalpha/btcalpha/</string>
+        <string>-A</string>
+        <string>btcalpha</string>
+        <string>-l</string>
+        <string>DEBUG</string>
+        <string>--logfile=/Users/igorvus/Development/btcalpha/btcalpha/celery.log</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
+
+3) add to autostart
+sudo launchctl load /Library/LaunchDaemons/io.celery.worker.plist
+
+4) start and stop commands:
+sudo launchctl start io.celery.worker
+sudo launchctl stop io.celery.worker

@@ -1,0 +1,14 @@
+{% extends 'main/index.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block page %}
+    <h2>{{ news.title }}</h2>
+    <i>{{ news.date|date:"d.m.Y" }} {% trans 'from' %} <strong>{{ news.author }}</strong></i>
+    <hr>
+    <p>
+        {% autoescape off %}
+            {{ news.text }}
+        {% endautoescape %}
+    </p>
+{% endblock %}

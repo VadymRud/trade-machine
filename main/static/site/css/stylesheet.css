@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    background-color: #f5f8fa;
+}
+.highlight {
+    padding: 9px 14px;
+    margin-bottom: 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+}
+.highlightcontent {
+    padding: 9px 14px;
+    margin-bottom: 14px;
+    margin-right: 3px;
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+}
+.type-info {
+    color: #767676;
+    vertical-align: middle;
+}
+
+.DashboardProfileCard-bg {
+    background-image: url(https://pbs.twimg.com/profile_banners/4871766076/1454451507/600x200);
+}
+.u-bgUserColor, .u-bgUserColorHover:hover, .u-bgUserColorHover:focus {
+    background-color: #3B94D9 !important;
+}
+
+.DashboardProfileCard-bg {
+    background-size: 100%;
+    border-bottom: 1px solid #e1e8ed;
+    height: 95px;
+    border-radius: 4px 4px 0 0;
+    background-position: 0 50%;
+    width: 100%;
+    padding: 0 1px;
+    margin-left: -1px;
+    margin-top: -1px;
+}
+.u-block {
+    display: block!important;
+}
+

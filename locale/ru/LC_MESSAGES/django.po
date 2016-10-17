@@ -1,0 +1,579 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-06 09:58+0000\n"
+"PO-Revision-Date: 2016-05-06 11:06+0000\n"
+"Last-Translator: b'  <adm@mail.ru>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.7.11\n"
+
+#: btcalpha/settings.py:160
+msgid "Russian"
+msgstr "Русский"
+
+#: btcalpha/settings.py:161
+msgid "English"
+msgstr "Английский"
+
+#: clients/models.py:46
+msgid "User"
+msgstr "Пользователь"
+
+#: clients/models.py:47
+msgid "Users"
+msgstr "Пользователи"
+
+#: clients/templates/clients/add_wallet.html:5
+#: clients/templates/clients/add_wallet.html:24
+msgid "Add Wallet"
+msgstr "Добавить кошелек"
+
+#: clients/templates/clients/base.html:61
+#: clients/templates/clients/base.html:114
+msgid "Settings"
+msgstr "Настройки"
+
+#: clients/templates/clients/base.html:63
+msgid "Sign Out"
+msgstr "Выйти"
+
+#: clients/templates/clients/base.html:66
+#: clients/templates/clients/base.html:329
+msgid "Registration"
+msgstr "Регистрация"
+
+#: clients/templates/clients/base.html:68
+msgid "Login"
+msgstr "Вход"
+
+#: clients/templates/clients/base.html:79
+msgid "Account"
+msgstr "Аккаунт"
+
+#: clients/templates/clients/base.html:86
+msgid "Transfer money"
+msgstr "Перевод"
+
+#: clients/templates/clients/base.html:93
+msgid "Exchange money"
+msgstr "Обмен"
+
+#: clients/templates/clients/base.html:100
+msgid "History"
+msgstr "История"
+
+#: clients/templates/clients/base.html:107
+msgid "Support"
+msgstr "Поддержка"
+
+#: clients/templates/clients/base.html:352
+#: clients/templates/clients/profile.html:16
+msgid "Select wallet"
+msgstr "Выбрать кошелек"
+
+#: clients/templates/clients/base.html:363
+#: clients/templates/clients/profile.html:27
+msgid "Sum"
+msgstr "Сумма"
+
+#: clients/templates/clients/base.html:374
+#: clients/templates/clients/profile.html:38
+msgid "On account"
+msgstr ""
+
+#: clients/templates/clients/base.html:385
+#: clients/templates/clients/profile.html:49
+msgid "Description"
+msgstr "Описание"
+
+#: clients/templates/clients/base.html:395
+#: clients/templates/clients/profile.html:59
+msgid "Transfers review"
+msgstr "Просмотр"
+
+#: clients/templates/clients/cabinet_template.html:64
+msgid "ACCOUNT"
+msgstr "АККАУНТ"
+
+#: clients/templates/clients/cabinet_template.html:67
+msgid "RECHARGE"
+msgstr ""
+
+#: clients/templates/clients/cabinet_template.html:71
+msgid "TRANSFER MONEY"
+msgstr ""
+
+#: clients/templates/clients/cabinet_template.html:75
+msgid "EXCHANGE MONEY"
+msgstr ""
+
+#: clients/templates/clients/cabinet_template.html:78
+msgid "SUPPORT"
+msgstr ""
+
+#: clients/templates/clients/cabinet_template.html:81
+msgid "HISTORY"
+msgstr ""
+
+#: clients/templates/clients/cabinet_template.html:85
+msgid "SETTINGS"
+msgstr ""
+
+#: clients/templates/clients/cabinet_template.html:88
+msgid "LOGOUT"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:7
+msgid "Client Change Porsonal Info"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:53
+msgid "Profile changed"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:61
+msgid "First Name"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:71
+msgid "Second Name"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:81
+msgid "Third Name"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:91
+msgid "Birthday"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:101
+msgid "Sex"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:115
+msgid "Mobile Phone"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:125
+msgid "Phone"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:135
+msgid "Country"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:150
+msgid "City"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:160
+msgid "Zip"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:170
+msgid "Adress"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:180
+msgid "Merchant key"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:185
+msgid "Generate"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:192
+#: clients/templates/clients/client_change_info.html:298
+#: clients/templates/clients/client_change_info.html:365
+#: clients/templates/clients/client_change_info.html:433
+#: clients/templates/clients/client_change_info.html:479
+msgid "Update"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:211
+msgid "Password changed"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:219
+msgid "Old password"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:229
+msgid "New password"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:238
+msgid "Retype password"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:249
+msgid "Change password"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:267
+#: clients/templates/clients/client_change_info.html:316
+msgid "Settings changed"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:326
+msgid "Confirm transfer money"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:340
+msgid "Send money notification"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:354
+msgid "Receive money notification"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:383
+msgid "Passports data changed"
+msgstr ""
+
+#: clients/templates/clients/client_change_info.html:503
+#: clients/templates/clients/client_change_info.html:523
+msgid "Upload"
+msgstr ""
+
+#: clients/templates/clients/index.html:5
+msgid "Main page"
+msgstr ""
+
+#: clients/templates/clients/index.html:80
+msgid "Success"
+msgstr ""
+
+#: clients/templates/clients/index.html:82
+msgid "Fail"
+msgstr ""
+
+#: clients/templates/clients/profile.html:5
+msgid "Client Profile"
+msgstr ""
+
+#: finance/api.py:13
+msgid "Field must to be greater them zero"
+msgstr ""
+
+#: finance/models.py:54
+msgid "Currency"
+msgstr "Валюта"
+
+#: finance/models.py:55
+msgid "Currencies"
+msgstr "Валюты"
+
+#: finance/models.py:108 templates/cabinet/orders_history.html.py:16
+#: templates/cabinet/orders_history.html:66
+#: templates/cabinet/trade_history.html:13
+msgid "Pair"
+msgstr "Пара Валют"
+
+#: finance/models.py:109
+msgid "Pairs"
+msgstr "Пары Валют"
+
+#: finance/models.py:144
+#, fuzzy
+#| msgid "Add Wallet"
+msgid "Wallet"
+msgstr "Кошелек"
+
+#: finance/models.py:145
+#, fuzzy
+#| msgid "Add Wallet"
+msgid "Wallets"
+msgstr "Кошельки"
+
+#: finance/models.py:165
+msgid "Journal"
+msgstr "Журнал"
+
+#: finance/models.py:166
+msgid "Journals"
+msgstr "Журналы"
+
+#: finance/models.py:201
+msgid "sell"
+msgstr "продажа"
+
+#: finance/models.py:201
+msgid "buy"
+msgstr "покупка"
+
+#: finance/models.py:206
+msgid "active"
+msgstr "активный"
+
+#: finance/models.py:206
+msgid "cancelled"
+msgstr "отменен"
+
+#: finance/models.py:207
+msgid "done"
+msgstr "выполнен"
+
+#: finance/models.py:314
+msgid "Order"
+msgstr "Заказ"
+
+#: finance/models.py:315
+msgid "Orders"
+msgstr "Заказы"
+
+#: finance/models.py:451
+#, fuzzy
+#| msgid "Exchange money"
+msgid "Exchange"
+msgstr "Обмен"
+
+#: finance/models.py:452
+#, fuzzy
+#| msgid "Exchange money"
+msgid "Exchanges"
+msgstr "Обмен"
+
+#: finance/models.py:520
+msgid "Cancel Order"
+msgstr "Отмененный Заказ"
+
+#: finance/models.py:521
+msgid "Cancel Orders"
+msgstr "Отмененные Заказы"
+
+#: finance/models.py:564
+msgid "Deposit"
+msgstr "Депозит"
+
+#: finance/models.py:565
+msgid "Deposits"
+msgstr "Депозиты"
+
+#: finance/models.py:572
+msgid "new"
+msgstr "новый"
+
+#: finance/models.py:572
+msgid "approved"
+msgstr "подтвержден"
+
+#: finance/models.py:573
+msgid "refused"
+msgstr "отклонен"
+
+#: finance/models.py:587
+msgid "WithdrawRequest"
+msgstr "Запрос на вывод  "
+
+#: finance/models.py:588
+msgid "WithdrawRequests"
+msgstr "Запросы на вывод"
+
+#: finance/models.py:601
+msgid "Withdraw"
+msgstr "Запрос на вывод  средств "
+
+#: finance/models.py:602
+msgid "Withdraws"
+msgstr "Запросы на вывод  "
+
+#: finance/models.py:618
+msgid "OrderMotion"
+msgstr "Движение по Заказу"
+
+#: finance/models.py:619
+msgid "OrderMotions"
+msgstr "Движения по Заказу"
+
+#: finance/models.py:633
+msgid "WalletMotion"
+msgstr "Движение по Кошельку"
+
+#: finance/models.py:634
+msgid "WalletMotions"
+msgstr "Движения по Кошельку"
+
+#: finance/models.py:649
+#, fuzzy
+#| msgid "Exchange money"
+msgid "ExchangeCandle5Min"
+msgstr "Обмен"
+
+#: finance/models.py:650
+#, fuzzy
+#| msgid "Exchange money"
+msgid "ExchangeCandle5Mins"
+msgstr "Обмен"
+
+#: main/forms.py:25
+msgid "Passwords must be identical"
+msgstr ""
+
+#: templates/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: templates/admin/index.html:31
+msgid "Add"
+msgstr ""
+
+#: templates/admin/index.html:37
+msgid "Change"
+msgstr ""
+
+#: templates/admin/index.html:47
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: templates/admin/index.html:55
+msgid "Recent Actions"
+msgstr ""
+
+#: templates/admin/index.html:56
+msgid "My Actions"
+msgstr ""
+
+#: templates/admin/index.html:60
+msgid "None available"
+msgstr ""
+
+#: templates/admin/index.html:74
+msgid "Unknown content"
+msgstr ""
+
+#: templates/cabinet/finance.html:6 templates/site/index.html.py:144
+msgid "Finance"
+msgstr ""
+
+#: templates/cabinet/finance.html:10 templates/cabinet/trade_history.html:6
+#, fuzzy
+#| msgid "History"
+msgid "Trade history"
+msgstr "История"
+
+#: templates/cabinet/finance.html:11 templates/cabinet/orders_history.html:6
+msgid "Orders history"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:10 templates/site/merchant.html:39
+#: templates/site/merchant.html.py:74
+msgid "Buy"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:17
+#: templates/cabinet/orders_history.html:67
+#: templates/cabinet/trade_history.html:15 templates/site/merchant.html:143
+#: templates/site/merchant.html.py:166
+#, fuzzy
+#| msgid "Account"
+msgid "Amount"
+msgstr "Аккаунт"
+
+#: templates/cabinet/orders_history.html:18
+#: templates/cabinet/orders_history.html:68
+#: templates/cabinet/trade_history.html:16 templates/site/merchant.html:142
+#: templates/site/merchant.html.py:165
+msgid "Price"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:19
+#: templates/cabinet/orders_history.html:69
+msgid "Status"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:20
+#: templates/cabinet/orders_history.html:70
+#: templates/cabinet/trade_history.html:17
+msgid "Date"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:31
+#: templates/cabinet/orders_history.html:81
+msgid "Paid"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:33
+#: templates/cabinet/orders_history.html:83
+msgid "Canceled"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:35
+#: templates/cabinet/orders_history.html:85
+msgid "Active"
+msgstr ""
+
+#: templates/cabinet/orders_history.html:60 templates/site/merchant.html:85
+#: templates/site/merchant.html.py:121
+msgid "Sell"
+msgstr ""
+
+#: templates/cabinet/trade_history.html:14
+msgid "Type"
+msgstr ""
+
+#: templates/site/index.html:109
+msgid "Trade"
+msgstr "Торговля"
+
+#: templates/site/index.html:113 templates/site/merchant.html.py:8
+msgid "News"
+msgstr ""
+
+#: templates/site/index.html:154
+msgid "Admin panel"
+msgstr ""
+
+#: templates/site/index.html:159
+msgid "Logout"
+msgstr ""
+
+#: templates/site/index.html:166
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: templates/site/index.html:200
+msgid "Email address"
+msgstr "Email адрес"
+
+#: templates/site/index.html:205
+msgid "Password"
+msgstr "Пароль"
+
+#: templates/site/merchant.html:134
+msgid "Sell orders"
+msgstr ""
+
+#: templates/site/merchant.html:136 templates/site/merchant.html.py:159
+msgid "Summary"
+msgstr ""
+
+#: templates/site/merchant.html:157
+msgid "Buy orders"
+msgstr ""
+
+#: templates/site/merchant.html:207
+msgid "Cancel"
+msgstr ""
+
+#: templates/site/news.html:6
+msgid "All news"
+msgstr ""
+
+#: templates/site/news_item_views.html:7
+msgid "from"
+msgstr ""

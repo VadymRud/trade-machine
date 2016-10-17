@@ -1,0 +1,55 @@
+{% extends 'site/index.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block page %}
+    <h2>{% trans 'Trade history' %}</h2>
+    <div class="row highlightcontent">
+        <div class="col-md-12">
+            <div data-example-id="hoverable-table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>{% trans 'Pair' %}</th>
+                        <th>{% trans 'Type' %}</th>
+                        <th>{% trans 'Amount' %}</th>
+                        <th>{% trans 'Price' %}</th>
+                        <th>{% trans 'Date' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for trade in models %}
+                        <tr>
+                            <td>{{ trade.pair }}</td>
+                            <td>
+                                <span class="label {% if trade.type == 'sell' %}label-danger{% else %}label-success{% endif %}">
+                                {{ trade.type }}
+                                </span>
+                            </td>
+                            <td>{{ trade.amount }}</td>
+                            <td>{{ trade.price }}</td>
+                            <td>{{ trade.date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if models.has_previous %}
+                            <a href="?page={{ models.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ models.number }} of {{ models.paginator.num_pages }}.
+                        </span>
+
+                        {% if models.has_next %}
+                            <a href="?page={{ models.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

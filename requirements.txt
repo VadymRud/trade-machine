@@ -1,0 +1,24 @@
+# add python dependencies here
+django>=1.9
+django-filter
+django-extensions
+django-crum
+django-debug-toolbar
+django-simple-captcha
+django-custom-user
+django-user-sessions
+django-bootstrap3
+django-bower
+django_compressor
+djangorestframework
+libsass
+django-libsass
+psycopg2
+rosetta
+django-rosetta
+scipy
+nltk
+pandas
+
+# possible useless
+celery

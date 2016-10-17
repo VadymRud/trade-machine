@@ -1,0 +1,7 @@
+<div class="row highlightcontent">
+    {% for wallet in wallets %}
+        <div class="col-lg-6">
+            <span id="{{ wallet.currency }}">{{ wallet.amount }}</span> {{ wallet.currency }}
+        </div>
+    {% endfor %}
+</div>
